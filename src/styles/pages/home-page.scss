@@ -1,0 +1,13 @@
+.home-page {
+  min-height: var(--min-full-height);
+  padding-bottom: var(--footer-gap);
+  position: relative;
+
+  @include desktop-media {
+    padding-top: calc(var(--header-height) + 24px);
+  }
+
+  @include mobile-media {
+    padding-top: calc(var(--header-height) + 16px);
+  }
+}

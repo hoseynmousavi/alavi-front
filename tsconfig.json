@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "target": "ESNext",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "preserveConstEnums": false,
+    "sourceMap": false,
+    "jsx": "react-jsx",
+    "removeComments": true,
+    "moduleResolution": "bundler",
+    "allowJs": true,
+    "checkJs": false,
+//    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "module": "esnext",
+    "strict": true,
+    "lib": [
+      "dom",
+      "esnext"
+    ]
+  },
+  "include": [
+    "src",
+    "server",
+    "global.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

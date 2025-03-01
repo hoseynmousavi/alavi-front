@@ -1,0 +1,29 @@
+.image-loading-main {
+  object-fit: cover;
+  content-visibility: auto;
+
+  &.image-loading {
+    background-color: var(--neutral-5-color);
+    background-image: url("../../media/img-skeleton.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 0;
+  }
+
+  &.load-fail {
+    background-color: var(--neutral-3-color);
+    background: var(--neutral-3-color);
+    object-fit: contain;
+  }
+}
+
+.image-show-picture {
+  animation: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-height: initial !important;
+  max-width: initial !important;
+  position: fixed !important;
+  z-index: var(--modal-z-index) !important;
+  right: auto !important;
+}

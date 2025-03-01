@@ -1,0 +1,9 @@
+.git/
+node_modules/
+build/
+.gitignore
+.gitlab-ci.yml
+.dockerignore
+.gitlab-ci/
+Dockerfile
+README.md

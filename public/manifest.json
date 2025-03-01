@@ -1,0 +1,51 @@
+{
+  "short_name": "APP_TITLE",
+  "name": "APP_TITLE",
+  "icons": [
+    {
+      "src": "favicon.ico?version=VERSION",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png?version=VERSION",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png?version=VERSION",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "logo512.png?version=VERSION",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    },
+    {
+      "src": "logo1024.png?version=VERSION",
+      "type": "image/png",
+      "sizes": "1024x1024",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/",
+  "id": "/?version=VERSION",
+  "display": "standalone",
+  "theme_color": "THEME_COLOR",
+  "background_color": "BACKGROUND_COLOR",
+  "orientation": "portrait-primary",
+  "dir": "rtl",
+  "lang": "fa",
+  "description": "DESCRIPTION",
+  "prefer_related_applications": false,
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": [
+      "navigate-existing",
+      "auto"
+    ]
+  }
+}

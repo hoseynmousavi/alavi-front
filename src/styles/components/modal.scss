@@ -1,0 +1,113 @@
+.desktop-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: var(--modal-z-index);
+  transform: translate3d(-50%, -50%, 0);
+  box-shadow: 0 3px 11px rgba(0, 0, 0, 0.2);
+  background-color: var(--third-glass-background);
+  backdrop-filter: var(--backdrop-filter);
+  border-radius: var(--forth-radius);
+  max-height: var(--full-modal-height);
+  overflow-y: auto;
+  overflow-x: clip;
+  animation: modal-in var(--first-transition);
+
+  &.hide {
+    opacity: 0;
+    animation: modal-out var(--first-transition);
+  }
+}
+
+.modal-background {
+  position: fixed;
+  inset: 0;
+  background-color: var(--first-modal-background-color);
+  z-index: var(--modal-z-index);
+  animation: fade-in var(--first-transition);
+
+  &.hide {
+    opacity: 0;
+    animation: fade-out var(--first-transition) both;
+  }
+
+  @include mobile-media {
+    &.hide-mobile {
+      display: none;
+    }
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+}
+
+@keyframes modal-out {
+  from {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(0.9);
+  }
+}
+
+.mobile-modal {
+  position: fixed;
+  z-index: var(--modal-z-index);
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border-radius: var(--third-radius) var(--third-radius) 0 0;
+  overflow: clip;
+  user-select: none;
+  animation: vertical var(--first-transition);
+  padding-bottom: var(--bottom-env-padding);
+
+  &.android {
+    background-color: var(--surface-color);
+  }
+
+  &:not(.android) {
+    background-color: var(--third-glass-background);
+    backdrop-filter: var(--backdrop-filter);
+  }
+}
+
+@keyframes vertical {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.mobile-modal-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--mobile-modal-line-height);
+  transition: background-color var(--first-transition);
+}
+
+.mobile-modal-line-line {
+  width: 40px;
+  height: 4px;
+  border-radius: var(--third-radius);
+  background-color: var(--neutral-4-color);
+}
+
+.mobile-modal-content {
+  overflow-x: clip;
+  overflow-y: auto;
+  max-height: var(--full-modal-height);
+}

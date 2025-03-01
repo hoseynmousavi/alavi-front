@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa-IR">
+<head>
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json?version=VERSION"/>
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico?version=VERSION"/>
+    <link rel="preconnect" href="PRECONNECT1"/>
+    <link rel="preconnect" href="PRECONNECT2"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover, user-scalable=0"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="theme-color" content="THEME_COLOR"/>
+    <meta name="google" content="notranslate"/>
+    <title>NAME</title>
+    <meta property="og:title" content="NAME"/>
+    <meta name="twitter:title" content="NAME"/>
+    <meta name="description" content="DESCRIPTION"/>
+    <meta property="og:description" content="DESCRIPTION"/>
+    <meta name="twitter:description" content="DESCRIPTION"/>
+    <meta property="og:image" content="IMAGE?version=VERSION"/>
+    <meta name="twitter:image" content="IMAGE?version=VERSION"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta charset="utf-8"/>
+    <link rel="preload" href="%PUBLIC_URL%/media/fonts/IRANSansXV.woff2" as="font" type="font/woff2" crossorigin/>
+    <style>
+        @font-face {
+            font-family: my-font-regular;
+            src: url("%PUBLIC_URL%/media/fonts/IRANSansXV.woff2") format("woff2-variations");
+            font-display: swap;
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: my-font-medium;
+            src: url("%PUBLIC_URL%/media/fonts/IRANSansXV.woff2") format("woff2-variations");
+            font-display: swap;
+            font-weight: 500;
+        }
+
+        @font-face {
+            font-family: my-font-bold;
+            src: url("%PUBLIC_URL%/media/fonts/IRANSansXV.woff2") format("woff2-variations");
+            font-display: swap;
+            font-weight: 700;
+        }
+
+        @font-face {
+            font-family: my-font-extrabold;
+            src: url("%PUBLIC_URL%/media/fonts/IRANSansXV.woff2") format("woff2-variations");
+            font-display: swap;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+<script>
+    const isLoggedIn = localStorage.getItem("user")
+    const haveGrid = document.cookie.includes("card_grid") || localStorage.getItem("card_grid")
+    if (isLoggedIn || (haveGrid && document.getElementsByClassName("card-container").length)) {
+        document.body.style.display = "none"
+    }
+</script>
+<div id="root"></div>
+<div id="svg-container" style="display: none"></div>
+</body>
+</html>

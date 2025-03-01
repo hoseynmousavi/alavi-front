@@ -1,0 +1,41 @@
+.alert-modal {
+  width: 420px;
+  max-width: calc(min(var(--first-max-page-width), 100% - 32px));
+  padding: 24px;
+}
+
+.alert-modal-header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.alert-modal-header-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.alert-modal-title {
+  font-family: my-font-extrabold, serif;
+  font-size: var(--large-font);
+  margin-top: 12px;
+  text-align: center;
+}
+
+.alert-modal-desc {
+  font-family: my-font-regular, serif;
+  font-size: var(--title-font);
+  color: var(--neutral-9-color);
+  margin-top: 12px;
+  line-height: var(--first-line-height);
+  white-space: pre-line;
+  text-align: center;
+}
+
+.alert-modal-submit {
+  margin-top: 24px;
+}
+
+.alert-modal-cancel {
+  margin-top: 12px;
+}

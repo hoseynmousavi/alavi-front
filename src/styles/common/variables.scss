@@ -1,0 +1,162 @@
+:root {
+  &::view-transition {
+    pointer-events: none;
+  }
+
+  --language-direction: rtl;
+
+  --mobile-modal-line-height: 20px;
+
+  --full-modal-height: calc(var(--dynamic-full-height) - var(--top-env-padding) - var(--mobile-modal-line-height) - var(--bottom-env-padding));
+
+  --nav-mobile-height-dynamic: var(--nav-mobile-height);
+  --nav-mobile-height: 56px;
+
+  --top-env-padding: env(safe-area-inset-top);
+  --bottom-env-padding: calc(min(env(safe-area-inset-bottom), 20px));
+
+  --desktop-modal-width: 586px;
+
+  --first-solid-padding: calc(0.06 * var(--full-width));
+
+  --second-solid-padding: 24px;
+
+  --backdrop-filter: saturate(10%);
+
+  --first-btn-input-height: 128px;
+  --second-btn-input-height: 56px;
+  --third-btn-input-height: 48px;
+  --forth-btn-input-height: 40px;
+  --fifth-btn-input-height: 32px;
+
+  --first-max-page-width: calc(min(1390px, var(--full-width)));
+  --second-max-page-width: calc(min(750px, var(--full-width)));
+
+  --first-line-height: 24px;
+  --second-line-height: 28px;
+  --third-line-height: 56px;
+  --forth-line-height: 32px;
+  --fifth-line-height: 20px;
+  --sixth-line-height: 26px;
+  --seventth-line-height: 48px;
+
+  --toast-z-index: 5;
+  --modal-z-index: 4;
+  --header-z-index: 3;
+  --default-z-index: 1;
+
+  --first-transition-time: 250ms;
+  --first-transition-method: ease;
+  --first-transition: var(--first-transition-method) var(--first-transition-time);
+
+  --second-transition-time: 600ms;
+  --second-transition-method: linear;
+  --second-transition: var(--second-transition-method) var(--second-transition-time);
+
+  --skeleton-animation: skeleton 1.8s ease-in-out infinite;
+
+  --success-color: #90F677;
+  --success-container-color: #001F0E;
+
+  --info-color: #216FD9;
+  --info-container-color: #051223;
+
+  --warning-color: #FFC043;
+  --warning-container-color: #1F1400;
+
+  --error-color: #E63946;
+  --error-container-color: #1F0300;
+
+  --first-modal-background-color: rgba(0, 0, 0, 0.5);
+
+  --first-glass-background: rgb(from var(--surface-color) r g b / 0.9);
+  --third-glass-background: rgb(from var(--surface-color) r g b / 0.75);
+
+  --primary-light-color: #E5F0FF;
+
+  --primary-color: #2C7EF8;
+  --on-primary-color: #FFFFFF;
+
+  --background-color: #FFFFFF;
+  --on-background-color: #070D31;
+  --surface-color: #FFFFFF;
+
+  --first-border-color: #F2F2F2;
+  --second-border-color: #EAECF0;
+
+  --neutral-3-color: #FFFFFF;
+  --neutral-4-color: #FEFEFE;
+  --neutral-5-color: #F5F6F8;
+  --neutral-6-color: #E1E0E5;
+  --neutral-7-color: #C8C7CB;
+  --neutral-8-color: #AFAEB2;
+  --neutral-9-color: #7D7D7F;
+  --neutral-10-color: #646466;
+  --neutral-11-color: #323233;
+  --neutral-12-color: #000000;
+
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --neutral-center-2-color: #8C8E91;
+
+  --first-material-color: rgba(0, 0, 0, 0.15);
+
+  --zero-radius: 2px;
+  --first-radius: 4px;
+  --second-radius: 6px;
+  --third-radius: 8px;
+  --forth-radius: 12px;
+  --fifth-radius: 16px;
+  --sixth-radius: 20px;
+  --seven-radius: 24px;
+  --eight-radius: 32px;
+  --nine-radius: 40px;
+  --tenth-radius: 50px;
+
+  --damn-font: 8px;
+  --tiny-font: 10px;
+  --small-font: 12px;
+  --regular-font: 13px;
+  --title-font: 14px;
+  --large-font: 16px;
+  --big-font: 18px;
+  --huge-font: 20px;
+  --giant-font: 24px;
+  --jeez-font: 28px;
+  --whacking-font: 32px;
+  --super-whacking-font: 36px;
+  --wow-font: 40px;
+
+  --full-width: 100dvw;
+  --max-full-height: 100lvh;
+  --dynamic-full-height: 100dvh;
+  --min-full-height: 100svh;
+  @supports not (height: 100svh) {
+    --full-width: 100vw;
+    --max-full-height: 100vh;
+    --dynamic-full-height: 100vh;
+    --min-full-height: 100vh;
+  }
+
+  @include desktop-media {
+    --bottom-page-padding: 0px;
+  }
+  @include mobile-media {
+    --bottom-page-padding: calc(var(--nav-mobile-height-dynamic) + var(--remote-mobile-height-dynamic) + var(--bottom-env-padding));
+  }
+
+  @include desktop-media {
+    --header-height: 80px;
+  }
+  @include mobile-media {
+    --header-height: 56px;
+  }
+
+  @include desktop-media {
+    --footer-gap: 64px;
+  }
+  @include mobile-media {
+    --footer-gap: 24px;
+  }
+}
