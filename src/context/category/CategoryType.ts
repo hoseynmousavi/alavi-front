@@ -1,14 +1,12 @@
 export interface CategoryType {
-    category_icon: string,
-    index: number,
-    slug: string,
-    title_en: string,
-    title_fa: string,
+    id: string,
+    name: string,
+    image: string,
 }
 
 export interface CategoryState {
     list: Array<string>,
-    results: { [slug: string]: CategoryType | undefined },
+    results: { [id: string]: CategoryType | undefined },
     count: number,
     getDone: boolean,
 }

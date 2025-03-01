@@ -17,7 +17,7 @@
 
   --desktop-modal-width: 586px;
 
-  --first-solid-padding: calc(0.06 * var(--full-width));
+  --first-solid-padding: calc(0.04 * var(--full-width));
 
   --second-solid-padding: 24px;
 
@@ -29,8 +29,7 @@
   --forth-btn-input-height: 40px;
   --fifth-btn-input-height: 32px;
 
-  --first-max-page-width: calc(min(1390px, var(--full-width)));
-  --second-max-page-width: calc(min(750px, var(--full-width)));
+  --first-max-page-width: calc(min(1400px, var(--full-width)));
 
   --first-line-height: 24px;
   --second-line-height: 28px;

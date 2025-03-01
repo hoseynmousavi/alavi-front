@@ -3,16 +3,16 @@ import Image from "views/components/image/Image"
 import MaterialLink from "views/components/material/MaterialLink"
 
 interface SliderItemProps {
-    data: { mobileSrc: string, desktopSrc: string },
+    data: { desktop_image: string, mobile_image: string },
     goNext: () => void,
     setActiveSlidePercent: Dispatch<SetStateAction<number>>,
     isRendering: boolean,
     isActive: boolean
 }
 
-function SliderItem({data: {mobileSrc, desktopSrc}, goNext, setActiveSlidePercent, isRendering, isActive}: SliderItemProps) {
-    const verticalPoster = mobileSrc
-    const horizontalPoster = desktopSrc
+function SliderItem({data: {desktop_image, mobile_image}, goNext, setActiveSlidePercent, isRendering, isActive}: SliderItemProps) {
+    const verticalPoster = mobile_image
+    const horizontalPoster = desktop_image
     const timerRef = useRef<ReturnType<typeof setTimeout>>(null)
     const imgTimerProgressRef = useRef(0)
     const imgTimerTotalRef = useRef(5)

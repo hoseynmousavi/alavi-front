@@ -4,7 +4,7 @@ import {useEffect, useRef, useState} from "react"
 import SliderDotItem from "views/components/slider/SliderDotItem"
 import SliderItem from "views/components/slider/SliderItem"
 
-function Slider({items, isRendering}: { items: Array<{ mobileSrc: string, desktopSrc: string }>, isRendering: boolean }) {
+function Slider({items, isRendering}: { items: Array<{ desktop_image: string, mobile_image: string }>, isRendering: boolean }) {
     const [slideIndex, setSlideIndex] = useState(0)
     const [activeSlidePercent, setActiveSlidePercent] = useState(0)
     const contRef = useRef<HTMLDivElement>(null)

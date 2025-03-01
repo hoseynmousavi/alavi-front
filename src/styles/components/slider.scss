@@ -1,11 +1,15 @@
 .slider {
-  width: 100%;
   position: relative;
   overflow: clip;
+
   @include desktop-media {
     aspect-ratio: 1200 / 328;
+    width: calc(100% - 2 * var(--first-solid-padding));
+    margin-inline: auto;
+    border-radius: var(--fifth-radius);
   }
   @include mobile-media {
+    width: 100%;
     aspect-ratio: 360 / 270;
   }
 }
@@ -58,7 +62,7 @@
   overflow: clip;
   width: 6px;
   height: 6px;
-  background-color: var(--neutral-4-color);
+  background-color: var(--neutral-6-color);
   border-radius: 50%;
   transition: width var(--first-transition), border-radius var(--first-transition);
 

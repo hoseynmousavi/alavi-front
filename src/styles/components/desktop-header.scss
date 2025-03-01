@@ -1,15 +1,22 @@
 .desktop-header {
   height: var(--header-height);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 var(--first-solid-padding);
   border-bottom: 1px solid var(--first-border-color);
+  background-color: var(--surface-color);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: var(--header-z-index);
+}
+
+.desktop-header-content {
+  max-width: var(--first-max-page-width);
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--first-solid-padding);
 }
 
 .desktop-header-first {
@@ -21,14 +28,25 @@
 
 .desktop-header-first-logo {
   font-family: "my-font-bold", serif;
-  font-size: var(--large-font);
   color: var(--on-background-color);
+
+  @include desktop-media {
+    font-size: var(--large-font);
+  }
+  @include mobile-media {
+    font-size: var(--title-font);
+  }
 }
 
 .desktop-header-first-btn {
-  font-size: var(--title-font);
-  font-family: "my-font-medium", serif;
-  color: var(--neutral-10-color);
-  padding: 12px;
-  border-radius: var(--second-radius);
+  @include desktop-media {
+    font-size: var(--title-font);
+    font-family: "my-font-medium", serif;
+    color: var(--neutral-10-color);
+    padding: 12px;
+    border-radius: var(--second-radius);
+  }
+  @include mobile-media {
+    display: none;
+  }
 }

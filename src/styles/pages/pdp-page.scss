@@ -1,0 +1,111 @@
+.pdp-page {
+  max-width: var(--first-max-page-width);
+  margin-inline: auto;
+  min-height: calc(var(--min-full-height) / 1.3);
+  padding-bottom: var(--footer-gap);
+  position: relative;
+
+  @include desktop-media {
+    padding-top: calc(var(--header-height) + 24px);
+  }
+
+  @include mobile-media {
+    padding-top: calc(var(--header-height) + 16px);
+  }
+}
+
+.pdp-page-description {
+  background-color: var(--neutral-5-color);
+  margin: 40px var(--first-solid-padding) 0;
+
+  @include desktop-media {
+    padding: 48px;
+    border-radius: var(--fifth-radius);
+  }
+
+  @include mobile-media {
+    padding: 16px;
+    border-radius: var(--third-radius);
+  }
+}
+
+.pdp-page-description-title {
+  font-family: my-font-bold, serif;
+  color: var(--on-background-color);
+  margin-bottom: 12px;
+
+  @include desktop-media {
+    font-size: var(--huge-font);
+  }
+
+  @include mobile-media {
+    font-size: var(--large-font);
+  }
+}
+
+.pdp-page-description-txt {
+  color: var(--neutral-10-color);
+
+  @include desktop-media {
+    font-size: var(--big-font);
+  }
+
+  @include mobile-media {
+    font-size: var(--title-font);
+  }
+}
+
+.pdp-page-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--first-solid-padding);
+  flex-wrap: wrap;
+}
+
+.pdp-page-hero-first {
+  @include mobile-media {
+    width: 100%;
+  }
+}
+
+.pdp-page-hero-first-title {
+  color: var(--on-background-color);
+  font-family: my-font-bold, serif;
+  margin-bottom: 12px;
+
+  @include desktop-media {
+    font-size: var(--giant-font);
+  }
+
+  @include mobile-media {
+    font-size: var(--huge-font);
+  }
+}
+
+.pdp-page-hero-first-detail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.pdp-page-hero-first-detail-border {
+  height: 12px;
+  width: 1px;
+  background-color: var(--neutral-6-color);
+}
+
+.pdp-page-hero-second {
+  aspect-ratio: 16 / 9;
+  border-radius: var(--fifth-radius);
+
+  @include desktop-media {
+    width: 40%;
+  }
+  @include mobile-media {
+    width: 100%;
+    order: -1;
+    margin-bottom: 32px;
+  }
+}

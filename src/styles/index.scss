@@ -18,9 +18,11 @@
 @import "components/show-validation";
 @import "components/desktop-header";
 @import "components/slider";
+@import "components/footer";
 
 @import "pages/login";
 @import "pages/home-page";
+@import "pages/pdp-page";
 
 html, body {
   background-color: var(--background-color);

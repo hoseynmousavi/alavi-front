@@ -1,22 +1,22 @@
-import {CategoryActionType, CategoryState} from "context/category/CategoryType"
+import {ProjectActionType, ProjectState} from "context/project/ProjectType"
 import retrieveInitialState from "helpers/context/retrieveInitialState"
 import arrayToKeyObject from "helpers/data-manipulation/arrayToKeyObject"
 import mapToKey from "helpers/data-manipulation/mapToKey"
 
-const categoryInitialState: CategoryState = {
+const projectsInitialState: ProjectState = {
     list: [],
     results: {},
     count: 0,
     getDone: false,
 }
 
-export function categoryInit(props: { [key: string]: CategoryState }) {
-    return retrieveInitialState<CategoryState>({key: "category", initialState: categoryInitialState, props})
+export function projectInit(props: { [key: string]: ProjectState }) {
+    return retrieveInitialState<ProjectState>({key: "project", initialState: projectsInitialState, props})
 }
 
-function categoryReducer(state: CategoryState = categoryInitialState, action: CategoryActionType) {
+function projectReducer(state: ProjectState = projectsInitialState, action: ProjectActionType) {
     switch (action.type) {
-        case "GET_CATEGORIES": {
+        case "GET_PROJECTS": {
             const {res} = action.payload
             const {count, results} = res
             return {
@@ -33,4 +33,4 @@ function categoryReducer(state: CategoryState = categoryInitialState, action: Ca
     }
 }
 
-export default categoryReducer
+export default projectReducer

@@ -15,8 +15,18 @@ const FA_TEXT = {
     enterCode: "کد تایید را وارد کنید",
     codeSent: (phone: string) => `کد تایید برای شماره ${phone} پیامک شد`,
     projectChances: "فرصت‌های مهربانی",
+    projectChances2: "فرصت‌های نیکوکاری",
     aboutUs: "درباره ما",
     contactUs: "ارتباط با ما",
+    showAll: "مشاهده همه",
+    progressFund: (funded_amount: string, required_amount: string) => `${funded_amount} از ${required_amount} میلیون`,
+    categories: "دسته‌بندی‌ها",
+    footerTxt: "تمامی حقوق مادی و معنوی این سایت متعلق به بنیاد خیریه علوی  می‌باشد.",
+    contactUsFooter: "راه‌‌های ارتباطی",
+    descProject: "توضیحات پروژه",
+    province: (province: string = "تهران") => `استان ${province}`,
+    county: (county: string = "تهران") => `شهرستان ${county}`,
+    involve: "شرکت در پروژه",
 }
 
 export default FA_TEXT
