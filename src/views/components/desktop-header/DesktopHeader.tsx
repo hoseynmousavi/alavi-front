@@ -12,7 +12,7 @@ function DesktopHeader() {
             <div className="desktop-header-content">
                 <div className="desktop-header-first">
                     <MaterialLink className="desktop-header-first-logo" link={{to: URLS.mainContainer.routes.home}}>{process.env.REACT_APP_APP_TITLE}</MaterialLink>
-                    <MaterialLink className="desktop-header-first-btn">{textConstant.projectChances}</MaterialLink>
+                    <MaterialLink className="desktop-header-first-btn" link={{to: URLS.mainContainer.routes.projects}}>{textConstant.projectChances}</MaterialLink>
                     <MaterialLink className="desktop-header-first-btn">{textConstant.aboutUs}</MaterialLink>
                     <MaterialLink className="desktop-header-first-btn">{textConstant.contactUs}</MaterialLink>
                 </div>

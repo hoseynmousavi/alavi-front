@@ -1,5 +1,5 @@
 type RetrieveInitialStateProps<S> = {
-    key: "category" | "project";
+    key: "category" | "project" | "home";
     initialState: S;
     props: { [key: string]: S };
 };

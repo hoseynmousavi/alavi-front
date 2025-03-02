@@ -17,16 +17,24 @@ export interface ProjectType {
 }
 
 export interface ProjectState {
-    list: Array<string>,
-    results: { [id: string]: ProjectType | undefined },
-    count: number,
-    getDone: boolean,
+    list: {
+        [storeKey: string]: {
+            results: {
+                [id: string]: ProjectType,
+            },
+            list: Array<string>,
+            offset: number,
+            count: number,
+        } | undefined
+    }
 }
 
 export interface GetProjectsActionType {
     type: "GET_PROJECTS",
     payload: {
-        res: { results: Array<ProjectType>, count: number }
+        res: { count: number, results: Array<ProjectType> },
+        offset: number,
+        storeKey: string
     }
 }
 

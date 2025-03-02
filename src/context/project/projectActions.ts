@@ -4,7 +4,7 @@ import {Dispatch} from "react"
 import request from "request/request"
 
 function getList({projectDispatch}: { projectDispatch: Dispatch<GetProjectsActionType> }) {
-    return request.get({url: API_URLS.getProjects})
+    return request.get({url: API_URLS.projects})
         .then((res: { results: Array<ProjectType>, count: number }) => {
             const action: GetProjectsActionType = {type: "GET_PROJECTS", payload: {res}}
             projectDispatch(action)

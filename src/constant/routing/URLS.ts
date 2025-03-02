@@ -13,8 +13,11 @@ const URLS = {
     mainContainer: { // order is important, please keep sync with mainPageContainer.js
         entry: "*",
         routes: {
+            projects: "/projects",
+
             pdpLink: (id: string) => `/pdp/${id}`,
             pdp: "/pdp/:id",
+
             home: "/",
         },
     },

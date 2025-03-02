@@ -1,9 +1,10 @@
+import {SliderItemType} from "context/home/HomeType"
 import {Dispatch, memo, SetStateAction, useEffect, useRef} from "react"
 import Image from "views/components/image/Image"
 import MaterialLink from "views/components/material/MaterialLink"
 
 interface SliderItemProps {
-    data: { desktop_image: string, mobile_image: string },
+    data: SliderItemType,
     goNext: () => void,
     setActiveSlidePercent: Dispatch<SetStateAction<number>>,
     isRendering: boolean,

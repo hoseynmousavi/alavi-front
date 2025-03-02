@@ -64,14 +64,14 @@ function refreshToken() {
 function getOtpCode({data: {phone_number}}: { data: { phone_number: string } }): Promise<{ remaining: number, detail: string }> {
     const data = new URLSearchParams()
     data.append("phone_number", phone_number)
-    return request.post({url: API_URLS.getOtp, data})
+    return request.post({url: API_URLS.otp, data})
 }
 
 function login({data: {phone_number, code}, authDispatch}: { data: { phone_number: string, code: string }, authDispatch: Dispatch<SetUserActionType> }) {
     const data = new URLSearchParams()
     data.append("phone_number", phone_number)
     data.append("code", code)
-    return request.post({url: API_URLS.getOtp, data, dontToast: true})
+    return request.post({url: API_URLS.otp, data, dontToast: true})
         .then((res: { access_token: string, refresh_token: string, created: boolean, user: UserType }) => {
             const {access_token, refresh_token, user} = res
             _setCookies({access_token, refresh_token})

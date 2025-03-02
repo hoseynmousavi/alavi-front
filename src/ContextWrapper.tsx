@@ -1,6 +1,7 @@
 import AuthProvider from "context/auth/authProvider"
 import CategoryProvider from "context/category/categoryProvider"
 import {CategoryState} from "context/category/CategoryType"
+import HomeProvider from "context/home/homeProvider"
 import LocationProvider from "context/location/locationReducer"
 import ProjectProvider from "context/project/projectProvider"
 import ScreenProvider from "context/screen/screenProvider"
@@ -30,7 +31,9 @@ function ContextWrapper({children, req, ...props}: ContextWrapperProps) {
                             <ScrollProvider {...props}>
                                 <CategoryProvider {...props}>
                                     <ProjectProvider {...props}>
-                                        {children}
+                                        <HomeProvider {...props}>
+                                            {children}
+                                        </HomeProvider>
                                     </ProjectProvider>
                                 </CategoryProvider>
                             </ScrollProvider>
