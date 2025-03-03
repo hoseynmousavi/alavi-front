@@ -34,16 +34,6 @@ registerRoute(
 
 registerRoute(
     new Route(
-        ({request, url}) => request.destination === "image" && url.pathname.endsWith("tooltip.png"),
-        new CacheFirst({
-            cacheName: "tooltips",
-            plugins: [new ExpirationPlugin({maxEntries: 4})],
-        }),
-    ),
-)
-
-registerRoute(
-    new Route(
         ({request}) => request.destination === "image",
         new CacheFirst({
             cacheName: "images",
