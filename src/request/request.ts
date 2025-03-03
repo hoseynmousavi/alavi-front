@@ -8,7 +8,6 @@ import getToken from "request/getToken"
 import handleOnGoingRequests from "request/handleOnGoingRequests"
 import handleRefreshingRequests from "request/handleRefreshingRequests"
 import headerMaker from "request/headerMaker"
-import onUploadProgress from "request/onUploadProgress"
 import urlMaker from "request/urlMaker"
 import {getByNetworkProps, RequestDelType, RequestErrorType, RequestGetType, RequestPatchType, RequestPostType} from "types/RequestTypes"
 
@@ -133,20 +132,31 @@ function post({url, data, params, cancelToken, dontToast, headers}: RequestPostT
         })
 }
 
-function patch({url, data, params, progress, cancelToken, dontToast}: RequestPatchType) {
-    return import("axios")
-        .then(axios => {
-            const reqUrl = urlMaker({url, params})
-            return axios.default.patch(reqUrl, data, {headers: headerMaker(), signal: cancelMaker({cancelToken}), onUploadProgress: onUploadProgress({progress})})
-                .then(res => res.data)
-                .catch(err => {
-                    if (err?.response?.status) {
-                        return _serverErrorHandler({status: err?.response?.status, data: err?.response?.data, callback: () => patch(arguments[0])})
+function patch({url, data, params, cancelToken, dontToast}: RequestPatchType) {
+    const reqUrl = urlMaker({url, params})
+    const isURLSearchParams = data instanceof URLSearchParams
+    const isFormData = data instanceof FormData
+    return fetch(reqUrl, {
+        method: "POST",
+        body: isURLSearchParams || isFormData ? data : JSON.stringify(data),
+        headers: headerMaker({headers: {...!isFormData && !isURLSearchParams ? {"content-type": "application/json"} : {}}}),
+        signal: cancelMaker({cancelToken}),
+    })
+        .then(res => {
+            const contentType = res.headers.get("content-type")
+            const isJson = !!(contentType && contentType.indexOf("application/json") !== -1)
+            return res[isJson ? "json" : "text"]()
+                .then(data => {
+                    if (res.ok) {
+                        return data
                     }
                     else {
-                        return _networkErrorHandler({err, dontToast})
+                        return _serverErrorHandler({data, status: res.status, callback: () => patch(arguments[0])})
                     }
                 })
+        })
+        .catch(err => {
+            return _networkErrorHandler({err, dontToast})
         })
 }
 

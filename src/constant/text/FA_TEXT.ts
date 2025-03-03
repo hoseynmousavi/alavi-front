@@ -1,3 +1,5 @@
+import showNumber from "helpers/input/showNumber"
+
 const FA_TEXT = {
     input: {
         phoneIsNotValid: "شماره موبایل وارد شده معتبر نمی‌باشد",
@@ -14,19 +16,33 @@ const FA_TEXT = {
     enterPhone: "سلام!\nلطفا شماره موبایل خود را وارد کنید",
     enterCode: "کد تایید را وارد کنید",
     codeSent: (phone: string) => `کد تایید برای شماره ${phone} پیامک شد`,
+    allCats: "همه دسته‌ها",
     projectChances: "فرصت‌های مهربانی",
     projectChances2: "فرصت‌های نیکوکاری",
+    projectSimilarChances2: "فرصت‌های مشابه نیکوکاری",
     aboutUs: "درباره ما",
     contactUs: "ارتباط با ما",
     showAll: "مشاهده همه",
-    progressFund: (funded_amount: string, required_amount: string) => `${funded_amount} از ${required_amount} میلیون`,
+    progressFund: (funded_amount: number, required_amount: number) => `${showNumber(funded_amount)} از ${showNumber(required_amount)} تومان`,
+    fundGot: " تامین شده",
     categories: "دسته‌بندی‌ها",
     footerTxt: "تمامی حقوق مادی و معنوی این سایت متعلق به بنیاد خیریه علوی  می‌باشد.",
     contactUsFooter: "راه‌‌های ارتباطی",
     descProject: "توضیحات پروژه",
     province: (province: string = "تهران") => `استان ${province}`,
     county: (county: string = "تهران") => `شهرستان ${county}`,
-    involve: "شرکت در پروژه",
+    involve: "مشارکت در پروژه",
+    peopleCount: (count: number) => `${count} نفر`,
+    involvedPeopleCount: ` در این طرح مشارکت کرده‌اند.`,
+    inputPrice: "مبلغ مورد نظرتان را وارد کنید:",
+    inputPriceHolder: "مبلغ مورد نظر",
+    toman: "تومان",
+    pay: "پرداخت",
+    home: "خانه",
+    projectChance: "فرصت مهربانی",
+    profile: "پروفایل",
+    noProjectFound: "پروژه‌ای یافت نشد.",
+    user: "کاربر",
 }
 
 export default FA_TEXT

@@ -13,6 +13,7 @@ function LoginOtp({route: {params: {phone_number}}}: PageRouterType) {
     const {textConstant, toastConstant} = getTextConstant()
     const [remaining, setRemaining] = useState<number | null>(null)
     const [getLoading, setGetLoading] = useState<boolean>(true)
+    const [submitLoading, setSubmitLoading] = useState<boolean>(false)
     const [error, setError] = useState<string>("")
     const intervalRef = useRef<ReturnType<typeof setInterval>>(null)
     const {authDispatch} = use(authContext)
@@ -57,8 +58,10 @@ function LoginOtp({route: {params: {phone_number}}}: PageRouterType) {
         setError("")
 
         if (value) {
+            setSubmitLoading(true)
             authActions.login({data: {phone_number, code: value}, authDispatch})
                 .catch((err) => {
+                    setSubmitLoading(false)
                     if (err?.data && err?.status) {
                         setError(getErrorMessage(err))
                     }
@@ -101,7 +104,7 @@ function LoginOtp({route: {params: {phone_number}}}: PageRouterType) {
                             null
                     }
                 </div>
-                <Button isLoading={getLoading} className="login-box-btn" desktopIsFullWidth isDisable>{textConstant.login}</Button>
+                <Button isLoading={getLoading || submitLoading} className="login-box-btn" desktopIsFullWidth isDisable>{textConstant.login}</Button>
             </>
         </>
     )

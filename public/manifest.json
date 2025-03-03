@@ -6,29 +6,6 @@
       "src": "favicon.ico?version=VERSION",
       "sizes": "48x48",
       "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png?version=VERSION",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png?version=VERSION",
-      "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "any"
-    },
-    {
-      "src": "logo512.png?version=VERSION",
-      "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "maskable"
-    },
-    {
-      "src": "logo1024.png?version=VERSION",
-      "type": "image/png",
-      "sizes": "1024x1024",
-      "purpose": "maskable"
     }
   ],
   "start_url": "/",

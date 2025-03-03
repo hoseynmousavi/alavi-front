@@ -1,7 +1,5 @@
-import OS_TYPES from "constant/general/OS_TYPES"
 import checkParentHasClass from "helpers/general/checkParentHasClass"
 import checkParentIsScrolling from "helpers/general/checkParentIsScrolling"
-import getOS from "helpers/general/getOS"
 import stopPropagation from "helpers/general/stopPropagation"
 import router from "helpers/router/router"
 import {MouseEvent, TouchEvent, useEffect, useImperativeHandle, useRef} from "react"
@@ -13,8 +11,6 @@ export const MODAL_DONT_GESTURE = "dont-gesture"
 
 function MobileModal(props: MobileModalType) {
     const {children, mobileRootClassName, className, backClassName, close, ref, disableClose, root = document.body} = props
-    const OS = getOS()
-    const isAndroid = OS === OS_TYPES.android
     const startedGesturing = useRef(false)
     const isGesturing = useRef(false)
     const posX = useRef(0)
@@ -107,7 +103,7 @@ function MobileModal(props: MobileModalType) {
             sidebarRef.current.style.transition = "transform linear 0.2s, border-radius linear 0.2s"
             window.requestAnimationFrame(() => !!sidebarRef.current && (sidebarRef.current.style.transform = `translate3d(0, ${translateY.current}px, 0)`))
             if (isFull) window.requestAnimationFrame(() => !!sidebarRef.current && (sidebarRef.current.style.borderRadius = "0 0 0 0"))
-            modalBackRef.current.style.transition = "opacity linear 0.2s, backdrop-filter linear 0.2s"
+            modalBackRef.current.style.transition = "opacity linear 0.2s"
             modalBackRef.current.style.opacity = "1"
             setTimeout(() => {
                 sidebarRef.current?.style?.removeProperty?.("transform")
@@ -128,7 +124,7 @@ function MobileModal(props: MobileModalType) {
                 if (isFull) window.requestAnimationFrame(() => !!sidebarRef.current && (sidebarRef.current.style.borderRadius = "var(--third-radius) var(--third-radius) 0 0"))
             }
             if (modalBackRef?.current) {
-                modalBackRef.current.style.transition = "opacity linear 0.2s, backdrop-filter linear 0.2s"
+                modalBackRef.current.style.transition = "opacity linear 0.2s"
                 modalBackRef.current.style.opacity = `0`
             }
             setTimeout(close, 250)
@@ -150,7 +146,7 @@ function MobileModal(props: MobileModalType) {
         createPortal(
             <>
                 <div className={`modal-background ${backClassName}`} ref={modalBackRef} onClick={goBackIfNotHiding}/>
-                <div className={`mobile-modal ${mobileRootClassName} ${isAndroid ? "android" : ""}`} ref={sidebarRef} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={stopPropagation}>
+                <div className={`mobile-modal ${mobileRootClassName}`} ref={sidebarRef} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={stopPropagation}>
                     <div className="mobile-modal-line">
                         <div className="mobile-modal-line-line"/>
                     </div>

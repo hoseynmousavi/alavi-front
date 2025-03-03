@@ -22,7 +22,6 @@ export interface RequestPostType extends RequestType {
 
 export interface RequestPatchType extends RequestType {
     data: object,
-    progress?: (progress: number) => void,
 }
 
 export interface RequestServerErrorType {

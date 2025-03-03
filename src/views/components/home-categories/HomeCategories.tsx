@@ -5,7 +5,7 @@ import HomeCategoriesItem from "views/components/home-categories/HomeCategoriesI
 function HomeCategories({categories}: { categories: Array<CategoryType> }) {
     const {textConstant} = getTextConstant()
     return (
-        <div className="home-categories">
+        <div>
             <div className="home-categories-header">{textConstant.categories}</div>
             <div className="home-categories-list">
                 {

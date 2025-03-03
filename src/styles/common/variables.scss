@@ -15,13 +15,11 @@
   --top-env-padding: env(safe-area-inset-top);
   --bottom-env-padding: calc(min(env(safe-area-inset-bottom), 20px));
 
-  --desktop-modal-width: 586px;
+  --desktop-modal-width: 440px;
 
   --first-solid-padding: calc(0.04 * var(--full-width));
 
   --second-solid-padding: 24px;
-
-  --backdrop-filter: saturate(10%);
 
   --first-btn-input-height: 128px;
   --second-btn-input-height: 56px;
@@ -68,7 +66,6 @@
 
   --first-modal-background-color: rgba(0, 0, 0, 0.5);
 
-  --first-glass-background: rgb(from var(--surface-color) r g b / 0.9);
   --third-glass-background: rgb(from var(--surface-color) r g b / 0.75);
 
   --primary-light-color: #E5F0FF;
@@ -142,7 +139,7 @@
     --bottom-page-padding: 0px;
   }
   @include mobile-media {
-    --bottom-page-padding: calc(var(--nav-mobile-height-dynamic) + var(--remote-mobile-height-dynamic) + var(--bottom-env-padding));
+    --bottom-page-padding: calc(var(--nav-mobile-height-dynamic) + var(--bottom-env-padding));
   }
 
   @include desktop-media {

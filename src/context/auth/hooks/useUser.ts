@@ -1,13 +1,12 @@
 import authActions from "context/auth/authActions"
 import {authContext} from "context/auth/authProvider"
-import {AuthActionType} from "context/auth/AuthType"
+import {AuthActionType, UserType} from "context/auth/AuthType"
 import toastManager from "helpers/theme/toastManager"
 import {Dispatch, RefObject, use} from "react"
 import {ToastModeType} from "types/ToastType"
-import {UserType} from "context/auth/AuthType"
 
 interface UpdateUserType {
-    data: Partial<UserType> | FormData,
+    data: Partial<UserType>,
     toastMessage?: string,
     dontToast?: boolean,
     toastType?: ToastModeType,
@@ -22,8 +21,8 @@ function useUser<T extends UserType | undefined>(): { user: UserOrNull<T>, isLog
     const {user} = authState || {}
     const isLoggedIn = !!user
 
-    function updateUser({data, toastMessage, toastType, progress, cancelToken}: UpdateUserType) {
-        return authActions.updateUser({data, progress, cancelToken, authDispatch})
+    function updateUser({data, toastMessage, toastType, cancelToken}: UpdateUserType) {
+        return authActions.updateUser({data, cancelToken, authDispatch})
             .then(() => {
                 if (toastMessage && toastType) {
                     toastManager.addToast({message: toastMessage, type: toastType})

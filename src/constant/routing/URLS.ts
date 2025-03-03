@@ -1,3 +1,5 @@
+import createQueryString from "helpers/query-param/createQueryString"
+
 export interface UrlType {
     entry: string,
     routes: {
@@ -13,7 +15,10 @@ const URLS = {
     mainContainer: { // order is important, please keep sync with mainPageContainer.js
         entry: "*",
         routes: {
+            profile: "/profile",
+
             projects: "/projects",
+            projectsLink: (categoryId: number | null) => `/projects${createQueryString({params: {categoryId}})}`,
 
             pdpLink: (id: string) => `/pdp/${id}`,
             pdp: "/pdp/:id",

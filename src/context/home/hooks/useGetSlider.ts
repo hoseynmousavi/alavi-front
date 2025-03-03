@@ -1,6 +1,6 @@
 import homeActions from "context/home/homeActions"
 import {homeContext} from "context/home/homeProvider"
-import useGetData from "hooks/useGetData"
+import useGetData from "hooks/request/useGetData"
 import {use} from "react"
 
 function useGetSlider({isRendering}: { isRendering: boolean }) {

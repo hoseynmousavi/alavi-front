@@ -4,10 +4,8 @@ import arrayToKeyObject from "helpers/data-manipulation/arrayToKeyObject"
 import mapToKey from "helpers/data-manipulation/mapToKey"
 
 const projectsInitialState: ProjectState = {
-    list: [],
-    results: {},
-    count: 0,
-    getDone: false,
+    items: {},
+    search: {},
 }
 
 export function projectInit(props: { [key: string]: ProjectState }) {
@@ -17,14 +15,36 @@ export function projectInit(props: { [key: string]: ProjectState }) {
 function projectReducer(state: ProjectState = projectsInitialState, action: ProjectActionType) {
     switch (action.type) {
         case "GET_PROJECTS": {
+            const {res, offset, storeKey} = action.payload
+            const {count, results: data} = res || {}
+            return {
+                items: {
+                    ...state.items,
+                    ...arrayToKeyObject(data, "id"),
+                },
+                search: {
+                    ...state.search,
+                    [storeKey]: {
+                        list: [
+                            ...new Set([
+                                ...state.search[storeKey]?.list ?? [],
+                                ...mapToKey(data, "id"),
+                            ]),
+                        ],
+                        offset,
+                        count,
+                    },
+                },
+            }
+        }
+        case "GET_PROJECT_ITEM": {
             const {res} = action.payload
-            const {count, results} = res
             return {
                 ...state,
-                list: mapToKey(results, "id"),
-                results: arrayToKeyObject(results, "id"),
-                count,
-                getDone: true,
+                items: {
+                    ...state.items,
+                    [res.id]: res,
+                },
             }
         }
         default: {

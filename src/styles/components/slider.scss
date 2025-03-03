@@ -52,23 +52,41 @@
   z-index: var(--default-z-index);
   pointer-events: none;
   gap: 4px;
-  bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
   align-items: center;
+
+  @include desktop-media {
+    bottom: 16px;
+  }
+  @include mobile-media {
+    bottom: 12px;
+  }
 }
 
 .slider-dots-item {
   overflow: clip;
-  width: 6px;
-  height: 6px;
   background-color: var(--neutral-6-color);
   border-radius: 50%;
   transition: width var(--first-transition), border-radius var(--first-transition);
 
-  &.active {
-    width: 20px;
-    border-radius: var(--third-radius);
+  @include desktop-media {
+    width: 8px;
+    height: 8px;
+
+    &.active {
+      width: 16px;
+      border-radius: var(--third-radius);
+    }
+  }
+  @include mobile-media {
+    width: 6px;
+    height: 6px;
+
+    &.active {
+      width: 14px;
+      border-radius: var(--second-radius);
+    }
   }
 }
 
@@ -79,6 +97,6 @@
   transition: width linear 1s, background-color var(--first-transition);
 
   &.active {
-    background-color: var(--neutral-11-color);
+    background-color: var(--on-background-color);
   }
 }

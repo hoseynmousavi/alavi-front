@@ -1,16 +1,18 @@
+import URLS from "constant/routing/URLS"
+import FA_TEXT from "constant/text/FA_TEXT"
 import {ProjectType} from "context/project/ProjectType"
 import getTextConstant from "helpers/general/getTextConstant"
 import ArrowDownSvg from "media/svg/ArrowDownSvg"
-import HomeProject from "views/components/home-projects/HomeProject"
 import MaterialLink from "views/components/material/MaterialLink"
+import ProjectsRowItem from "views/components/projects-row/ProjectsRowItem"
 
-function HomeProjects({projects}: { projects: Array<ProjectType> }) {
+function ProjectsRow({projects, title = FA_TEXT.projectChances2, link = URLS.mainContainer.routes.projects}: { projects: Array<ProjectType>, title?: string, link?: string }) {
     const {textConstant} = getTextConstant()
     return (
-        <div className="home-projects">
+        <div>
             <div className="home-projects-header">
-                <div className="home-projects-header-title">{textConstant.projectChances2}</div>
-                <MaterialLink className="home-projects-header-all">
+                <div className="home-projects-header-title">{title}</div>
+                <MaterialLink className="home-projects-header-all" link={{to: link}}>
                     {textConstant.showAll}
                     <ArrowDownSvg/>
                 </MaterialLink>
@@ -18,7 +20,7 @@ function HomeProjects({projects}: { projects: Array<ProjectType> }) {
             <div className="home-projects-list">
                 {
                     projects.map(data =>
-                        <HomeProject key={data.id} data={data} />
+                        <ProjectsRowItem key={data.id} data={data}/>,
                     )
                 }
             </div>
@@ -26,4 +28,4 @@ function HomeProjects({projects}: { projects: Array<ProjectType> }) {
     )
 }
 
-export default HomeProjects
+export default ProjectsRow

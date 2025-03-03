@@ -10,18 +10,20 @@ export interface ProjectType {
         name: string,
     },
     cover_image: string,
-    required_amount: string,
-    funded_amount: string,
-    financial_completion_percentage: string,
+    required_amount: number,
+    funded_amount: number,
+    financial_completion_percentage: number,
     description: string,
+    tags: Array<{ id: number, name: string }>,
 }
 
 export interface ProjectState {
-    list: {
+    items: {
+        [id: string]: ProjectType | undefined,
+    },
+    search: {
         [storeKey: string]: {
-            results: {
-                [id: string]: ProjectType,
-            },
+
             list: Array<string>,
             offset: number,
             count: number,
@@ -38,5 +40,13 @@ export interface GetProjectsActionType {
     }
 }
 
+export interface GetProjectItemActionType {
+    type: "GET_PROJECT_ITEM",
+    payload: {
+        res: ProjectType,
+    }
+}
+
 export type ProjectActionType =
-    GetProjectsActionType
+    GetProjectsActionType |
+    GetProjectItemActionType

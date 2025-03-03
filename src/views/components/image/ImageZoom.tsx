@@ -26,7 +26,7 @@ function ImageZoom({imgRef, close}: ImageZoomProps) {
 
     useEffect(() => {
         if (imgRef.current?.src) {
-            onPopState({callback: closeImage, statusBarColor: "#050909"})
+            onPopState({callback: closeImage, statusBarColor: "#7F7F7F"})
             const {top, left, width, height} = imgRef.current.getBoundingClientRect()
             setShowRect({
                 src: imgRef.current.currentSrc,

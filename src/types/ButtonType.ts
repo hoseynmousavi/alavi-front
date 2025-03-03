@@ -1,7 +1,7 @@
 import {CSSProperties, MouseEventHandler, ReactNode, RefObject} from "react"
 import LinkType from "types/LinkType"
 
-type btnType = "primary" | "primary-light"
+type btnType = "primary" | "primary-light" | "second-border" | "border-n6-color-on-background"
 
 export type ButtonMobileType = btnType
 

@@ -18,8 +18,8 @@ function getProfile({authDispatch, cancelToken}: { authDispatch: Dispatch<SetUse
         })
 }
 
-function updateUser({data, progress, cancelToken, authDispatch}: { data: Partial<UserType> | FormData, progress?: (progress: number) => void, cancelToken?: RefObject<AbortController | null>, authDispatch: Dispatch<SetUserActionType> }) {
-    return request.patch({url: API_URLS.profile, data, progress, cancelToken})
+function updateUser({data, cancelToken, authDispatch}: { data: Partial<UserType>, cancelToken?: RefObject<AbortController | null>, authDispatch: Dispatch<SetUserActionType> }) {
+    return request.patch({url: API_URLS.profile, data, cancelToken})
         .then((user: UserType) => {
             setUser({data: {user}, authDispatch})
         })

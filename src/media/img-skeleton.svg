@@ -1,12 +1,12 @@
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
     <defs>
         <linearGradient id="Gradient1">
-            <stop stop-color="#1C1F21" stop-opacity="0" offset="0%"/>
-            <stop stop-color="#444749" stop-opacity="0.4" offset="60%"/>
-            <stop stop-color="#1C1F21" stop-opacity="0" offset="100%"/>
+            <stop stop-color="#C8C7CB" stop-opacity="0" offset="0%"/>
+            <stop stop-color="#646466" stop-opacity="0.4" offset="60%"/>
+            <stop stop-color="#C8C7CB" stop-opacity="0" offset="100%"/>
         </linearGradient>
     </defs>
-    <rect fill="#1C1F21" width='100' height='100' x='0' y='0'/>
+    <rect fill="#C8C7CB" width='100' height='100' x='0' y='0'/>
     <rect fill="url(#Gradient1)" width='100' height='100' x='0' y='0'>
         <animate attributeName='x' dur='1.4' values='200;-100;' repeatCount='indefinite'/>
     </rect>

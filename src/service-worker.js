@@ -5,7 +5,7 @@ import {clientsClaim} from "workbox-core"
 import {ExpirationPlugin} from "workbox-expiration"
 import {createHandlerBoundToURL, precacheAndRoute} from "workbox-precaching"
 import {registerRoute, Route} from "workbox-routing"
-import {CacheFirst, NetworkFirst, NetworkOnly} from "workbox-strategies"
+import {CacheFirst, NetworkFirst} from "workbox-strategies"
 
 clientsClaim()
 

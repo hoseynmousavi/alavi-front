@@ -5,8 +5,7 @@
   z-index: var(--modal-z-index);
   transform: translate3d(-50%, -50%, 0);
   box-shadow: 0 3px 11px rgba(0, 0, 0, 0.2);
-  background-color: var(--third-glass-background);
-  backdrop-filter: var(--backdrop-filter);
+  background-color: var(--surface-color);
   border-radius: var(--forth-radius);
   max-height: var(--full-modal-height);
   overflow-y: auto;
@@ -71,15 +70,7 @@
   user-select: none;
   animation: vertical var(--first-transition);
   padding-bottom: var(--bottom-env-padding);
-
-  &.android {
-    background-color: var(--surface-color);
-  }
-
-  &:not(.android) {
-    background-color: var(--third-glass-background);
-    backdrop-filter: var(--backdrop-filter);
-  }
+  background-color: var(--surface-color);
 }
 
 @keyframes vertical {
@@ -103,7 +94,7 @@
   width: 40px;
   height: 4px;
   border-radius: var(--third-radius);
-  background-color: var(--neutral-4-color);
+  background-color: var(--neutral-6-color);
 }
 
 .mobile-modal-content {

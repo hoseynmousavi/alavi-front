@@ -154,6 +154,34 @@
   }
 }
 
+@mixin btn-type-second-border {
+  border: 1px solid var(--second-border-color);
+  background-color: var(--surface-color);
+  color: var(--neutral-10-color);
+
+  svg {
+    fill: var(--neutral-10-color);
+  }
+
+  .loader-path {
+    stroke: var(--neutral-10-color) !important;
+  }
+}
+
+@mixin btn-type-border-n6-color-on-background {
+  border: 1px solid var(--neutral-6-color);
+  background-color: var(--surface-color);
+  color: var(--on-background-color);
+
+  svg {
+    //fill: var(--on-background-color);
+  }
+
+  .loader-path {
+    //stroke: var(--on-background-color) !important;
+  }
+}
+
 @mixin btn-disable($color: var(--neutral-center-2-color), $background-color: var(--neutral-7-color), $opacity: 1) {
   &.is-disable {
     background-color: $background-color;

@@ -54,6 +54,12 @@
     &.desktop-primary-light {
       @include btn-type-primary-light;
     }
+    &.desktop-second-border {
+      @include btn-type-second-border;
+    }
+    &.desktop-border-n6-color-on-background {
+      @include btn-type-border-n6-color-on-background;
+    }
 
     &.desktop-full-width {
       width: 100%;
@@ -107,6 +113,12 @@
     }
     &.mobile-primary-light {
       @include btn-type-primary-light;
+    }
+    &.mobile-second-border {
+      @include btn-type-second-border;
+    }
+    &.mobile-border-n6-color-on-background {
+      @include btn-type-border-n6-color-on-background;
     }
 
     &.mobile-full-width {

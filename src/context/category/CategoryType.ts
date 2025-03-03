@@ -1,12 +1,12 @@
 export interface CategoryType {
-    id: string,
+    id: number,
     name: string,
     image: string,
 }
 
 export interface CategoryState {
-    list: Array<string>,
-    results: { [id: string]: CategoryType | undefined },
+    list: Array<number>,
+    results: { [id: number]: CategoryType | undefined },
     count: number,
     getDone: boolean,
 }

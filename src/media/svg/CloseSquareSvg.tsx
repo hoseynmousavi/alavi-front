@@ -1,4 +1,4 @@
-import useSvg from "hooks/useSvg"
+import useSvg from "hooks/general/useSvg"
 
 function CloseSquareSvg({className}: { className?: string }) {
     return (

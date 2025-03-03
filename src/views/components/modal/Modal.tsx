@@ -24,7 +24,7 @@ function Modal(props: ModalType) {
 
     useEffect(() => {
         onPopState({
-            statusBarColor: statusBarColor ? statusBarColor : "#050909",
+            statusBarColor: statusBarColor ? statusBarColor : "#7F7F7F",
             callback: () => {
                 modalRef.current.desktopClose?.()
                 modalRef.current.mobileClose?.()

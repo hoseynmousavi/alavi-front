@@ -12,13 +12,20 @@
 }
 
 .footer-header-title {
-  font-size: var(--big-font);
-  font-family: "my-font-bold", serif;
   color: var(--on-background-color);
   text-align: center;
   background-color: var(--background-color);
   position: relative;
   padding: 0 16px;
+  font-family: my-font-bold, serif;
+
+  @include desktop-media {
+    font-size: var(--big-font);
+  }
+
+  @include mobile-media {
+    font-size: var(--large-font);
+  }
 }
 
 .footer-header-border {
@@ -26,12 +33,13 @@
   top: 10px;
   left: 0;
   right: 0;
-  background-color: #E2E8F0;
+  background-color: var(--first-border-color);
   height: 1px;
 }
 
 .footer-txt {
   color: var(--neutral-10-color);
+  font-family: my-font-regular, serif;
   text-align: center;
   padding-block: 24px;
 
@@ -40,7 +48,7 @@
   }
 
   @include mobile-media {
-    font-size: var(--small-font);
+    font-size: var(--tiny-font);
   }
 }
 
@@ -54,10 +62,11 @@
 .footer-col-title {
   font-size: var(--title-font);
   color: var(--neutral-10-color);
+  font-family: my-font-regular, serif;
 }
 
 .footer-col-item {
   font-size: var(--title-font);
   color: var(--on-background-color);
-  font-family: "my-font-bold", serif;
+  font-family: "my-font-medium", serif;
 }

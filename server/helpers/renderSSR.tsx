@@ -15,9 +15,7 @@ import setCacheHeader from "../helpers/setCacheHeader"
 interface renderSSRProps {
     req: ExpressRequestType,
     res: ExpressResponseType,
-    data?: {
-
-    },
+    data?: {},
     status: number
 }
 
