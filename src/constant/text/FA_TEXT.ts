@@ -5,7 +5,7 @@ const FA_TEXT = {
         phoneIsNotValid: "شماره موبایل وارد شده معتبر نمی‌باشد",
         emailIsNotValid: "ایمیل وارد شده معتبر نمی‌باشد",
         urlIsNotValid: "لینک وارد شده معتبر نمی‌باشد",
-        nationalIsNotValid: "کدملی وارد شده معتبر نمی‌باشد",
+        priceIsNotValid: `مبلغ وارد شده باید حداقل ${showNumber(1000)} تومان باشد`,
         minLengthErr: (name: string, min: number) => `${name} باید حداقل شامل ${min} کاراکتر باشد.`,
     },
     login: "ورود",
@@ -21,6 +21,10 @@ const FA_TEXT = {
     projectChances2: "فرصت‌های نیکوکاری",
     projectSimilarChances2: "فرصت‌های مشابه نیکوکاری",
     aboutUs: "درباره ما",
+    logout: "خروج از حساب کاربری",
+    logoutDesc: "آیا می‌خواهید از حساب کاربری خود خارج شوید؟",
+    exit: "خروج",
+    cancel: "انصراف",
     contactUs: "ارتباط با ما",
     showAll: "مشاهده همه",
     progressFund: (funded_amount: number, required_amount: number) => `${showNumber(funded_amount)} از ${showNumber(required_amount)} تومان`,
@@ -43,6 +47,11 @@ const FA_TEXT = {
     profile: "پروفایل",
     noProjectFound: "پروژه‌ای یافت نشد.",
     user: "کاربر",
+    account: "حساب کاربری",
+    helpHistory: "تاریخچه کمک‌ها",
+    name: "نام",
+    lastName: "نام خانوادگی",
+    submit: "تایید",
 }
 
 export default FA_TEXT

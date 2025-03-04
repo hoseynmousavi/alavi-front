@@ -18,7 +18,7 @@
   font-family: my-font-regular, serif;
   width: 100%;
   display: block;
-  border: 1px solid var(--neutral-7-color);
+  border: 1px solid var(--second-border-color);
   border-radius: var(--third-radius);
   height: var(--input-height);
   font-size: var(--title-font);
@@ -140,7 +140,7 @@
 
 .input-label-title {
   font-family: my-font-regular, serif;
-  color: var(--neutral-5-color);
+  color: var(--neutral-11-color);
   font-size: var(--title-font);
   position: absolute;
   top: 0;

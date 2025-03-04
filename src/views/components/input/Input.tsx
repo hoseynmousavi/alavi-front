@@ -3,6 +3,7 @@ import getTextConstant from "helpers/general/getTextConstant"
 import focusOnInput from "helpers/input/focusOnInput"
 import numberCorrection from "helpers/input/numberCorrection"
 import onInputKeyDown from "helpers/input/onInputKeyDown"
+import showNumber from "helpers/input/showNumber"
 import getIsMobile from "helpers/theme/getIsMobile"
 import CircleDangerSvg from "media/svg/CircleDangerSvg"
 import CloseSvg from "media/svg/CloseSvg"
@@ -101,6 +102,11 @@ function Input(props: InputType) {
                         if (!REGEX.EMAIL_REGEX.test(value)) setError(textConstant.input.emailIsNotValid)
                         break
                     }
+                    case "price": {
+                        const tempValue = value.replace(/,/g, "")
+                        if (minLength && tempValue.length < minLength) setError(textConstant.input.priceIsNotValid)
+                        break
+                    }
                     default: {
                         break
                     }
@@ -108,6 +114,7 @@ function Input(props: InputType) {
             }
             else if (minLength) {
                 if (value.length < minLength) {
+                    console.log("www")
                     if (label) setError(textConstant.input.minLengthErr(label, minLength))
                 }
             }
@@ -158,6 +165,21 @@ function Input(props: InputType) {
                         isCalledByParent: !!isCalledByParent,
                         hasError: !checkedValue && !!checkedValue.length,
                     })
+                    break
+                }
+                case "price": {
+                    const tempValue = numberCorrection(value.replace(/ /g, "").replace(/,/g, "").toLowerCase()).slice(0, maxLength)
+                    if (!isNaN(+tempValue)) {
+                        setValue(tempValue ? showNumber(tempValue) : "")
+                        const checkedValue = (!minLength || tempValue.length >= minLength) ? tempValue : ""
+                        onChange({
+                            name,
+                            value: checkedValue,
+                            isDefaultValue: !!isDefaultValue,
+                            isCalledByParent: !!isCalledByParent,
+                            hasError: !checkedValue && !!checkedValue.length,
+                        })
+                    }
                     break
                 }
                 default: {

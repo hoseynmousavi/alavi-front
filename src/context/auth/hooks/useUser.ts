@@ -10,7 +10,6 @@ interface UpdateUserType {
     toastMessage?: string,
     dontToast?: boolean,
     toastType?: ToastModeType,
-    progress?: (percent: number) => void,
     cancelToken?: RefObject<AbortController | null>
 }
 

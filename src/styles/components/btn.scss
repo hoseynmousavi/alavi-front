@@ -35,6 +35,7 @@
     }
     &.desktop-medium {
       @include btn-medium;
+      font-family: my-font-medium, serif;
 
       &.desktop-rounded {
         border-radius: var(--sixth-radius);

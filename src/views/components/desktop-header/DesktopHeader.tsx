@@ -22,12 +22,14 @@ function DesktopHeader() {
                 </div>
                 {
                     isLoggedIn ?
-                        <Button desktopType="border-n6-color-on-background" desktopSize="medium" link={{to: URLS.mainContainer.routes.profile}}>
+                        <Button desktopType="border-n6-color-on-background" desktopSize="medium" link={{to: URLS.mainContainer.routes.profile.routes.profileAccount}}>
                             <ProfileSvg/>
                             {fullName}
                         </Button>
                         :
-                        <Button desktopType="primary-light" desktopSize="medium" link={{to: URLS.loginContainer.routes.loginPhone}}>{textConstant.loginSignup}</Button>
+                        <Button desktopType="primary-light" desktopSize="medium" link={{to: URLS.loginContainer.routes.loginPhone}}>
+                            {textConstant.loginSignup}
+                        </Button>
                 }
             </div>
         </header>

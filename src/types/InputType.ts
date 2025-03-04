@@ -30,7 +30,7 @@ export interface InputType {
     EndIconClassName?: string,
     onEndIconClick?: () => void,
     showClear?: boolean,
-    validation?: "phone" | "email" | "url",
+    validation?: "phone" | "email" | "url" | "price",
     ltr?: boolean,
     ltrFont?: boolean,
     ref?: RefObject<InputImperativeRef>,

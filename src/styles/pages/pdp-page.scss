@@ -275,7 +275,6 @@
   font-size: var(--title-font);
   color: var(--on-background-color);
   position: absolute;
-  top: 50%;
+  top: 14px;
   inset-inline-end: 16px;
-  transform: translateY(-50%);
 }

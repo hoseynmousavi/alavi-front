@@ -24,7 +24,7 @@ function AlertModal(props: AlertModalType) {
             <Button className="alert-modal-submit" desktopType={submitType} desktopIsFullWidth desktopSize="medium" onClick={onSubmitClick} dataTestId="alert-modal-submit-button">{submitText}</Button>
             {
                 cancelText &&
-                <Button className="alert-modal-cancel" desktopType="primary" desktopIsFullWidth desktopSize="medium" onClick={router.back}>{cancelText}</Button>
+                <Button className="alert-modal-cancel" desktopType="second-border" desktopIsFullWidth desktopSize="medium" onClick={router.back}>{cancelText}</Button>
             }
         </Modal>
     )

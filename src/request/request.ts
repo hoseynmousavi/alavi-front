@@ -137,7 +137,7 @@ function patch({url, data, params, cancelToken, dontToast}: RequestPatchType) {
     const isURLSearchParams = data instanceof URLSearchParams
     const isFormData = data instanceof FormData
     return fetch(reqUrl, {
-        method: "POST",
+        method: "PATCH",
         body: isURLSearchParams || isFormData ? data : JSON.stringify(data),
         headers: headerMaker({headers: {...!isFormData && !isURLSearchParams ? {"content-type": "application/json"} : {}}}),
         signal: cancelMaker({cancelToken}),

@@ -23,7 +23,7 @@ function MobileNavbar() {
     const items = [
         {Icon: HomeOutlineSvg, ActiveIcon: HomeFillSvg, title: textConstant.home, link: URLS.mainContainer.routes.home},
         {Icon: HeartOutlineSvg, ActiveIcon: HeartFillSvg, title: textConstant.projectChance, link: URLS.mainContainer.routes.projects},
-        {Icon: UserOutlineSvg, ActiveIcon: UserFillSvg, title: textConstant.profile, link: isLoggedIn ? URLS.mainContainer.routes.profile : URLS.loginContainer.routes.loginPhone},
+        {Icon: UserOutlineSvg, ActiveIcon: UserFillSvg, title: textConstant.profile, link: isLoggedIn ? URLS.mainContainer.routes.profileMobile : URLS.loginContainer.routes.loginPhone},
     ]
 
     for (let i = 0; i < items.length; i++) {

@@ -27,6 +27,7 @@ function PdpPayModal({close}: { close: () => void }) {
                            maxLength={10}
                            minLength={4}
                            type="tel"
+                           validation="price"
                            placeholder={textConstant.inputPriceHolder}
                            focusOnMount
                            onSubmit={onSubmit}

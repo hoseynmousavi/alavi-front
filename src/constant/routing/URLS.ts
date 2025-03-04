@@ -15,7 +15,14 @@ const URLS = {
     mainContainer: { // order is important, please keep sync with mainPageContainer.js
         entry: "*",
         routes: {
-            profile: "/profile",
+            profile: {
+                entry: "/profile/:section",
+                routes: {
+                    profileAccount: "/profile/account",
+                },
+            },
+
+            profileMobile: "/profile",
 
             projects: "/projects",
             projectsLink: (categoryId: number | null) => `/projects${createQueryString({params: {categoryId}})}`,

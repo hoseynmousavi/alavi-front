@@ -1,0 +1,111 @@
+.profile {
+  display: flex;
+
+  @include desktop-media {
+    padding: calc(var(--header-height) + 32px) var(--first-solid-padding) 24px;
+  }
+
+  @include mobile-media {
+    flex-direction: column;
+  }
+}
+
+.profile-content {
+  display: flex;
+
+  @include desktop-media {
+    margin: 0 auto;
+    gap: 16px;
+    max-width: calc(var(--first-max-page-width) - 2 * var(--first-solid-padding));
+    width: 100%;
+  }
+
+  @include mobile-media {
+    flex-grow: 1;
+    flex-direction: column;
+  }
+}
+
+.profile-content-panel {
+  @include desktop-media {
+    width: 368px;
+    flex-shrink: 0;
+  }
+  @include mobile-media {
+    display: none;
+  }
+}
+
+.profile-content-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  @include desktop-media {
+    background-color: var(--surface-color);
+    border-radius: var(--third-radius);
+  }
+
+  .router-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.profile-tab {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-grow: 1;
+  border: 1px solid var(--second-border-color);
+  border-radius: var(--forth-radius);
+}
+
+.profile-account {
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-account-avatar {
+  width: 100px;
+  height: 100px;
+  fill: var(--neutral-6-color);
+}
+
+.profile-account-name {
+  margin-top: 16px;
+  font-size: var(--big-font);
+  font-family: "my-font-medium", serif;
+}
+
+.profile-account-phone {
+  margin-top: 12px;
+  color: var(--neutral-10-color);
+  font-size: var(--title-font);
+  font-family: "my-font-regular", serif;
+}
+
+.profile-account-form {
+  width: 100%;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--second-border-color);
+  display: flex;
+  gap: 24px;
+
+  @include mobile-media {
+    flex-wrap: wrap;
+  }
+}
+
+.profile-account-form-item {
+  flex: 1;
+
+  @include mobile-media {
+    min-width: 100%;
+  }
+}
