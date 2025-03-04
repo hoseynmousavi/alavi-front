@@ -7,17 +7,16 @@
 
   --mobile-modal-line-height: 20px;
 
-  --full-modal-height: calc(var(--dynamic-full-height) - var(--top-env-padding) - var(--mobile-modal-line-height) - var(--bottom-env-padding));
+  --full-modal-height: calc(var(--dynamic-full-height) - var(--mobile-modal-line-height) - var(--bottom-env-padding));
 
   --nav-mobile-height-dynamic: var(--nav-mobile-height);
   --nav-mobile-height: 56px;
 
-  --top-env-padding: env(safe-area-inset-top);
   --bottom-env-padding: calc(min(env(safe-area-inset-bottom), 20px));
 
   --desktop-modal-width: 440px;
 
-  --first-solid-padding: calc(0.04 * var(--full-width));
+  --first-solid-padding: calc(0.055 * var(--full-width));
 
   --second-solid-padding: 24px;
 

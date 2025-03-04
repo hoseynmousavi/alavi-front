@@ -19,7 +19,7 @@ body:has(.desktop-modal) {
   transition: top var(--first-transition);
 
   @include mobile-media {
-    top: calc(16px + var(--top-env-padding));
+    top: calc(16px);
   }
 
   @include desktop-media {

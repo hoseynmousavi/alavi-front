@@ -2,11 +2,19 @@ import URLS from "constant/routing/URLS"
 import useGetProjectsList from "context/project/hooks/useGetProjectsList"
 import {ProjectType} from "context/project/ProjectType"
 import getTextConstant from "helpers/general/getTextConstant"
-import {useState} from "react"
+import getWindowScrollAndHeight from "helpers/general/getWindowScrollAndHeight"
+import router from "helpers/router/router"
+import share from "helpers/share/share"
+import getRgbaFromColor from "helpers/theme/getRgbaFromColor"
+import useScroll from "hooks/general/useScroll"
+import LineArrowSvg from "media/svg/LineArrowSvg"
+import ShareSvg from "media/svg/ShareSvg"
+import {useRef, useState} from "react"
+import {MaterialLinkRefType} from "types/MaterialLinkType"
 import Button from "views/components/button/Button"
-import Footer from "views/components/footer/Footer"
 import Image from "views/components/image/Image"
 import Loader from "views/components/loading/Loader"
+import MaterialLink from "views/components/material/MaterialLink"
 import PdpPayModal from "views/components/pdp/PdpPayModal"
 import ProjectsRow from "views/components/projects-row/ProjectsRow"
 
@@ -18,14 +26,48 @@ function PdpPageContent({data, isRendering}: { data: ProjectType, isRendering: b
     const showSimilarProjects = similarProjects.filter(item => item.id !== id).slice(0, 3) // TODO wow delete
     const {textConstant} = getTextConstant()
     const [showPayModal, setShowPayModal] = useState(false)
+    const headerRef = useRef<HTMLDivElement>(null)
+    const secondBtnRef = useRef<MaterialLinkRefType>(null)
+    const firstBtnRef = useRef<MaterialLinkRefType>(null)
+
+    useScroll({scrollCallback, isRendering})
+
+    function scrollCallback() {
+        const {scrollTop} = getWindowScrollAndHeight()
+        const scroll = Math.max(0, scrollTop)
+        const progress = Math.min(scroll / 50, 1)
+        if (headerRef.current) {
+            headerRef.current.style.backgroundColor = getRgbaFromColor({variable: "--surface-color", alpha: Math.max(0, progress - 0.05)})
+            headerRef.current.style.paddingInline = `calc(var(--first-solid-padding) - 12px * ${progress})`
+            headerRef.current.style.paddingBlock = `calc(16px - 8px * ${progress})`
+        }
+
+        if (firstBtnRef.current && secondBtnRef.current) {
+            firstBtnRef.current.style.transition =
+                secondBtnRef.current.style.transition =
+                    "none"
+
+            firstBtnRef.current.style.backgroundColor =
+                secondBtnRef.current.style.backgroundColor =
+                    getRgbaFromColor({variable: "--surface-color", alpha: Math.max(0, 0.9 - progress)})
+        }
+    }
 
     function togglePayModal() {
         setShowPayModal(showPayModal => !showPayModal)
     }
 
+    function onShare() {
+        share({title: title})
+    }
+
     return (
         <div className="pdp">
             <div className="pdp-page">
+                <div className="pdp-page-mobile-header" ref={headerRef}>
+                    <MaterialLink contRef={firstBtnRef} className="pdp-page-mobile-header-btn back" onClick={router.back}><LineArrowSvg/></MaterialLink>
+                    <MaterialLink contRef={secondBtnRef} className="pdp-page-mobile-header-btn" onClick={onShare}><ShareSvg/></MaterialLink>
+                </div>
                 <div className="pdp-page-hero">
                     <div className="pdp-page-hero-first">
                         <div className="pdp-page-hero-first-title">{title}</div>
@@ -67,9 +109,7 @@ function PdpPageContent({data, isRendering}: { data: ProjectType, isRendering: b
                                      link={URLS.mainContainer.routes.projectsLink(categoryId)}
                         />
                 }
-
             </div>
-            <Footer/>
 
             {
                 showPayModal &&

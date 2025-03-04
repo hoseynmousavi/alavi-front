@@ -1,26 +1,60 @@
-.pdp {
-  --mobile-pdp-nav-height: 60px;
-  @include mobile-media {
-    padding-bottom: var(--mobile-pdp-nav-height);
-  }
-}
-
 .pdp-page {
   max-width: var(--first-max-page-width);
   margin-inline: auto;
   min-height: var(--min-full-height);
-  padding-bottom: var(--footer-gap);
   position: relative;
   display: flex;
   flex-direction: column;
 
+  --mobile-pdp-nav-height: 60px;
+
   @include desktop-media {
     padding-top: calc(var(--header-height) + 24px);
     gap: 40px;
+    padding-bottom: 32px;
   }
 
   @include mobile-media {
     gap: 24px;
+    padding-bottom: calc(var(--mobile-pdp-nav-height) + 32px);
+  }
+}
+
+.pdp-page-mobile-header {
+  @include desktop-media {
+    display: none;
+  }
+  @include mobile-media {
+    position: fixed;
+    padding: 16px var(--first-solid-padding);
+    z-index: var(--header-z-index);
+    top: 0;
+    inset-inline: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.pdp-page-mobile-header-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+  border-radius: 50%;
+
+  &.back {
+    svg {
+      transform: rotate(180deg);
+      fill: var(--on-background-color);
+    }
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
   }
 }
 
