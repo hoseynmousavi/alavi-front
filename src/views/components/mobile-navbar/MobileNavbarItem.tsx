@@ -3,15 +3,16 @@ import {ComponentAsPropsType} from "types/ComponentAsPropsType"
 import MaterialLink from "views/components/material/MaterialLink"
 
 interface MobileNavbarItemProps {
-    data: { Icon: ComponentAsPropsType, ActiveIcon: ComponentAsPropsType, title: string, link: string },
+    data: { Icon: ComponentAsPropsType, ActiveIcon: ComponentAsPropsType, title: string, link: string, replace: boolean },
     isActive: boolean
 }
 
 function MobileNavbarItem({data, isActive}: MobileNavbarItemProps) {
-    const {Icon, ActiveIcon, title, link} = data
+    const {Icon, ActiveIcon, title, link, replace} = data
 
     function onClick() {
-        router.replaceState({url: link})
+        if (replace) router.replaceState({url: link})
+        else router.pushState({url: link})
     }
 
     return (

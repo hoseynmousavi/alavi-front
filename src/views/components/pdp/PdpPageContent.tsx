@@ -29,6 +29,8 @@ function PdpPageContent({data, isRendering}: { data: ProjectType, isRendering: b
     const headerRef = useRef<HTMLDivElement>(null)
     const secondBtnRef = useRef<MaterialLinkRefType>(null)
     const firstBtnRef = useRef<MaterialLinkRefType>(null)
+    const titleRef = useRef<HTMLDivElement>(null)
+    const headerTitleRef = useRef<HTMLDivElement>(null)
 
     useScroll({scrollCallback, isRendering})
 
@@ -37,9 +39,10 @@ function PdpPageContent({data, isRendering}: { data: ProjectType, isRendering: b
         const scroll = Math.max(0, scrollTop)
         const progress = Math.min(scroll / 50, 1)
         if (headerRef.current) {
-            headerRef.current.style.backgroundColor = getRgbaFromColor({variable: "--surface-color", alpha: Math.max(0, progress - 0.05)})
+            headerRef.current.style.backgroundColor = getRgbaFromColor({variable: "--surface-color", alpha: Math.max(0, progress)})
             headerRef.current.style.paddingInline = `calc(var(--first-solid-padding) - 12px * ${progress})`
             headerRef.current.style.paddingBlock = `calc(16px - 8px * ${progress})`
+            headerRef.current.style.boxShadow = `0 1px 2px 0 rgba(0, 0, 0, ${progress * 0.06})`
         }
 
         if (firstBtnRef.current && secondBtnRef.current) {
@@ -50,6 +53,10 @@ function PdpPageContent({data, isRendering}: { data: ProjectType, isRendering: b
             firstBtnRef.current.style.backgroundColor =
                 secondBtnRef.current.style.backgroundColor =
                     getRgbaFromColor({variable: "--surface-color", alpha: Math.max(0, 0.9 - progress)})
+        }
+
+        if (titleRef && headerTitleRef.current?.style) {
+            headerTitleRef.current.style.opacity = scroll > (titleRef.current?.offsetTop ?? 0) ? "1" : "0"
         }
     }
 
@@ -66,11 +73,12 @@ function PdpPageContent({data, isRendering}: { data: ProjectType, isRendering: b
             <div className="pdp-page">
                 <div className="pdp-page-mobile-header" ref={headerRef}>
                     <MaterialLink contRef={firstBtnRef} className="pdp-page-mobile-header-btn back" onClick={router.back}><LineArrowSvg/></MaterialLink>
+                    <div className="pdp-page-mobile-header-title" ref={headerTitleRef}>{title}</div>
                     <MaterialLink contRef={secondBtnRef} className="pdp-page-mobile-header-btn" onClick={onShare}><ShareSvg/></MaterialLink>
                 </div>
                 <div className="pdp-page-hero">
                     <div className="pdp-page-hero-first">
-                        <div className="pdp-page-hero-first-title">{title}</div>
+                        <div className="pdp-page-hero-first-title" ref={titleRef}>{title}</div>
                         <div className="pdp-page-hero-first-detail">
                             <div>{textConstant.province(province.name)}</div>
                             <div className="pdp-page-hero-first-detail-border"/>

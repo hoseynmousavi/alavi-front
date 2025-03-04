@@ -32,7 +32,7 @@
     inset-inline: 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 8px;
   }
 }
 
@@ -56,6 +56,19 @@
     width: 20px;
     height: 20px;
   }
+}
+
+.pdp-page-mobile-header-title {
+  color: var(--on-background-color);
+  font-family: "my-font-bold", serif;
+  font-size: var(--title-font);
+  opacity: 0;
+  transition: opacity var(--first-transition);
+  width: calc(100% - 40px - 40px);
+  padding-inline-end: 16px;
+  white-space: nowrap;
+  overflow: clip;
+  text-overflow: ellipsis;
 }
 
 .pdp-page-description {
@@ -129,11 +142,11 @@
   margin-bottom: 12px;
 
   @include desktop-media {
-    font-size: var(--giant-font);
+    font-size: var(--huge-font);
   }
 
   @include mobile-media {
-    font-size: var(--huge-font);
+    font-size: var(--big-font);
   }
 }
 

@@ -21,9 +21,9 @@ function MobileNavbar() {
     const {isLoggedIn} = useUser()
 
     const items = [
-        {Icon: HomeOutlineSvg, ActiveIcon: HomeFillSvg, title: textConstant.home, link: URLS.mainContainer.routes.home},
-        {Icon: HeartOutlineSvg, ActiveIcon: HeartFillSvg, title: textConstant.projectChance, link: URLS.mainContainer.routes.projects},
-        {Icon: UserOutlineSvg, ActiveIcon: UserFillSvg, title: textConstant.profile, link: isLoggedIn ? URLS.mainContainer.routes.profileMobile : URLS.loginContainer.routes.loginPhone},
+        {Icon: HomeOutlineSvg, ActiveIcon: HomeFillSvg, title: textConstant.home, link: URLS.mainContainer.routes.home, replace: true},
+        {Icon: HeartOutlineSvg, ActiveIcon: HeartFillSvg, title: textConstant.projectChance, link: URLS.mainContainer.routes.projects, replace: true},
+        {Icon: UserOutlineSvg, ActiveIcon: UserFillSvg, title: textConstant.profile, link: isLoggedIn ? URLS.mainContainer.routes.profileMobile : URLS.loginContainer.routes.loginPhone, replace: isLoggedIn},
     ]
 
     for (let i = 0; i < items.length; i++) {
