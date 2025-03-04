@@ -3,12 +3,15 @@ import useUser from "context/auth/hooks/useUser"
 import useScreen from "context/screen/hooks/useScreen"
 import getFullName from "helpers/general/getFullName"
 import getTextConstant from "helpers/general/getTextConstant"
+import router from "helpers/router/router"
 import AvatarColoredSvg from "media/svg/AvatarColoredSvg"
+import LineArrowSvg from "media/svg/LineArrowSvg"
 import {useState} from "react"
 import {InputChangeOutputType} from "types/InputType"
 import {PageRouterType} from "types/RouterType"
 import Button from "views/components/button/Button"
 import Input from "views/components/input/Input"
+import MaterialLink from "views/components/material/MaterialLink"
 
 function ProfileAccountPage(props: PageRouterType) {
     const {user, updateUser} = useUser<UserType>()
@@ -32,6 +35,12 @@ function ProfileAccountPage(props: PageRouterType) {
     return (
         <div className="profile-tab">
             <div className="profile-account">
+                <div className="profile-history-title">
+                    <MaterialLink className="profile-history-title-back" onClick={router.back}>
+                        <LineArrowSvg className="profile-history-title-back-icon"/>
+                    </MaterialLink>
+                    {textConstant.editProfile}
+                </div>
                 <AvatarColoredSvg className="profile-account-avatar"/>
                 <div className="profile-account-name">{fullName}</div>
                 <div className="profile-account-phone">{phone_number}</div>

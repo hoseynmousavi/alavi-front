@@ -1,0 +1,33 @@
+.profile-history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--neutral-5-color);
+  border-radius: var(--third-radius);
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+}
+
+.profile-history-item-first {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-history-item-first-title {
+  font-size: var(--small-font);
+  color: var(--on-background-color);
+}
+
+.profile-history-item-first-date {
+  font-size: var(--small-font);
+  color: var(--neutral-10-color);
+  font-family: my-font-regular, serif;
+}
+
+.profile-history-item-second {
+  color: var(--on-background-color);
+  font-size: var(--title-font);
+  font-family: my-font-bold, serif;
+}

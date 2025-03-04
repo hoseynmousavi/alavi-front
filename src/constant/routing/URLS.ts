@@ -19,6 +19,7 @@ const URLS = {
                 entry: "/profile/:section",
                 routes: {
                     profileAccount: "/profile/account",
+                    profileHistory: "/profile/history",
                 },
             },
 

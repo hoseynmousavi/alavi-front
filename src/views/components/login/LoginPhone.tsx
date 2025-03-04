@@ -32,6 +32,7 @@ function LoginPhone({route}: PageRouterType) {
                    name="phone"
                    ltr
                    onSubmit={onSubmit}
+                   focusOnMount
             />
             <Button className="login-box-btn" desktopIsFullWidth isDisable={isDisable} onClick={onSubmit}>{textConstant.login}</Button>
             <div className="login-box-footer">{textConstant.loginDesc}</div>

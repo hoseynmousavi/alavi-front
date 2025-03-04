@@ -7,7 +7,7 @@ import CircleInfoColoredSvg from "media/svg/CircleInfoColoredSvg"
 import LogoutColoredSvg from "media/svg/LogoutColoredSvg"
 import ProfileSvg from "media/svg/ProfileSvg"
 import TransactionColoredSvg from "media/svg/TransactionColoredSvg"
-import ProfileSideItem from "views/components/profile/ProfileSideItem"
+import ProfileSideItem from "views/components/profile-side/ProfileSideItem"
 
 function ProfileSide({isMobile}: { isMobile?: boolean }) {
     const {textConstant} = getTextConstant()
@@ -33,8 +33,8 @@ function ProfileSide({isMobile}: { isMobile?: boolean }) {
 
     return (
         <div className="profile-side">
-            <ProfileSideItem Icon={ProfileSvg} title={textConstant.account} isActive link={{to: URLS.mainContainer.routes.profile.routes.profileAccount}}/>
-            <ProfileSideItem Icon={TransactionColoredSvg} title={textConstant.helpHistory}/>
+            <ProfileSideItem Icon={ProfileSvg} title={textConstant.account} link={{to: URLS.mainContainer.routes.profile.routes.profileAccount}}/>
+            <ProfileSideItem Icon={TransactionColoredSvg} title={textConstant.helpHistory} link={{to: URLS.mainContainer.routes.profile.routes.profileHistory}}/>
             <ProfileSideItem Icon={CircleInfoColoredSvg} title={textConstant.aboutUs}/>
             <ProfileSideItem Icon={LogoutColoredSvg} title={textConstant.logout} onClick={onLogout}/>
         </div>

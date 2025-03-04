@@ -58,16 +58,25 @@
   flex-direction: column;
   width: 100%;
   flex-grow: 1;
-  border: 1px solid var(--second-border-color);
-  border-radius: var(--forth-radius);
+
+  @include desktop-media {
+    border: 1px solid var(--second-border-color);
+    border-radius: var(--forth-radius);
+  }
 }
 
 .profile-account {
-  padding: 32px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @include desktop-media {
+    padding: 32px 24px;
+  }
+  @include mobile-media {
+    padding: 12px 24px;
+  }
 }
 
 .profile-account-avatar {
@@ -108,4 +117,57 @@
   @include mobile-media {
     min-width: 100%;
   }
+}
+
+.profile-history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include desktop-media {
+    padding: 32px 24px;
+  }
+  @include mobile-media {
+    padding: 12px 24px;
+  }
+}
+
+.profile-history-title {
+  color: var(--on-background-color);
+  text-align: start;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  @include desktop-media {
+    font-size: var(--big-font);
+    margin-bottom: 12px;
+  }
+  @include mobile-media {
+    font-size: var(--title-font);
+    font-family: my-font-bold, serif;
+    border-bottom: 1px solid var(--second-border-color);
+    margin-bottom: 24px;
+    padding-bottom: 4px;
+  }
+}
+
+.profile-history-title-back {
+  padding: 8px;
+  border-radius: 50%;
+
+  @include desktop-media {
+    display: none;
+  }
+  @include mobile-media {
+    display: flex;
+  }
+}
+
+.profile-history-title-back-icon {
+  width: 24px;
+  height: 24px;
+  transform: rotate(180deg);
 }

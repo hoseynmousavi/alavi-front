@@ -1,5 +1,5 @@
 import {PageRouterType} from "types/RouterType"
-import ProfileSide from "views/components/profile/ProfileSide"
+import ProfileSide from "views/components/profile-side/ProfileSide"
 
 function ProfileMobilePage(props: PageRouterType) {
     return (

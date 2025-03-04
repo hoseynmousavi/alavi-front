@@ -49,6 +49,7 @@ const FA_TEXT = {
     user: "کاربر",
     account: "حساب کاربری",
     helpHistory: "تاریخچه کمک‌ها",
+    editProfile: "ویرایش اطلاعات",
     name: "نام",
     lastName: "نام خانوادگی",
     submit: "تایید",
