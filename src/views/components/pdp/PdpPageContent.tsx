@@ -41,7 +41,7 @@ function PdpPageContent({data, isRendering}: { data: ProjectType, isRendering: b
         if (headerRef.current) {
             headerRef.current.style.backgroundColor = getRgbaFromColor({variable: "--surface-color", alpha: Math.max(0, progress)})
             headerRef.current.style.paddingInline = `calc(var(--first-solid-padding) - 12px * ${progress})`
-            headerRef.current.style.paddingBlock = `calc(16px - 8px * ${progress})`
+            headerRef.current.style.paddingBlock = `calc(16px - 4px * ${progress})`
             headerRef.current.style.boxShadow = `0 1px 2px 0 rgba(0, 0, 0, ${progress * 0.06})`
         }
 
